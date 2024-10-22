@@ -3,32 +3,300 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ABOUT</title>
-    <link rel="stylesheet" href="about.css">
+    <title>Our Team</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #6366f1;
+            --secondary-color: #1e1b4b;
+            --accent-color: #818cf8;
+            --text-color: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        .gradient-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, #1e1b4b, #312e81, #4338ca);
+            opacity: 0.7;
+            animation: gradientMove 15s ease infinite;
+            background-size: 200% 200%;
+        }
+
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            text-shadow: 0 0 15px rgba(99, 102, 241, 0.3);
+        }
+
+        .team-description {
+            font-size: 1.2rem;
+            color: var(--text-color);
+            max-width: 800px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .team-member {
+            background: rgba(30, 27, 75, 0.9);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(99, 102, 241, 0.2);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 30px rgba(99, 102, 241, 0.3);
+        }
+
+        .member-image {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            border: 3px solid var(--primary-color);
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+        }
+
+        .member-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .member-name {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .member-role {
+            font-size: 1.2rem;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+        }
+
+        .member-bio {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .skills-container {
+            margin: 20px 0;
+        }
+
+        .skills-title {
+            font-size: 1.2rem;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .skill-tag {
+            background: rgba(99, 102, 241, 0.2);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--text-color);
+            border: 1px solid var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: var(--primary-color);
+            transform: scale(1.05);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            transform: scale(1.2);
+            color: var(--accent-color);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .team-member {
+                padding: 20px;
+            }
+
+            .member-image {
+                width: 150px;
+                height: 150px;
+            }
+        }
+    </style>
 </head>
 <body>
-      <div id="back">
-        <div id="photo">
-        <div id="back-photo"></div>
-        <div id="image"></div>
-    </div>
-        <div id="about">
-            <a id="about-me">About Me</a>
-            <div id="text">
-                  <div id="main-text"> 
-                     <a>As a developer, I thrive on crafting seamless user experiences with elegant code. My passion lies in delivering flawless solutions that captivate users and elevate interaction, pushing boundaries to create memorable digital journeys.
-                        <a>
-                  </div>
-                  <div id="not-main-text">
-                      <a>Driven by a passion for flawless user experiences, I excel in front-end development, crafting elegant solutions that captivate users. With meticulous code, I enhance interaction, striving to leave a lasting impression on every project.
-                      </a>
-                  </div>
+    <div class="gradient-bg"></div>
+    <div class="container">
+        <header>
+            <h1>Meet Our Team</h1>
+            <p class="team-description">
+                We are a passionate group of innovators pushing the boundaries of technology and design. 
+                Our diverse skillsets and collaborative approach enable us to create exceptional digital experiences.
+            </p>
+        </header>
+
+        <div class="team-grid">
+            <div class="team-member">
+                <div class="member-image">
+                    <img src="WhatsApp Image 2024-10-16 at 21.16.49_1b6c0f5e.jpg" alt="Aaryan Pradhan">
+                </div>
+                <h2 class="member-name">Aaryan Pradhan</h2>
+                <p class="member-role">Lead Developer</p>
+                <p class="member-bio">
+                    Full-stack developer with 5+ years of experience in web technologies. 
+                    Passionate about creating scalable solutions and mentoring junior developers.
+                </p>
+                <div class="skills-container">
+                    <h3 class="skills-title">Technical Skills</h3>
+                    <div class="skills-list">
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">TypeScript</span>
+                        <span class="skill-tag">AWS</span>
+                        <span class="skill-tag">GraphQL</span>
+                        <span class="skill-tag">MongoDB</span>
+                    </div>
+                </div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
             </div>
-            <div id="b">
-            <button id="hire"><a href="about.html" style="text-decoration: none;color:white">HIRE ME</a></button>
-            <button onclick="location.href='Apna resume bana lo aur dalo'" id="view">VIEW RESUME</button>
+
+            <div class="team-member">
+                <div class="member-image">
+                    <img src="WhatsApp Image 2024-10-22 at 12.43.47_22daa047.jpg" alt="Navdeep Singh">
+                </div>
+                <h2 class="member-name">Navdeep Singh</h2>
+                <p class="member-role">UI/UX Designer</p>
+                <p class="member-bio">
+                    Creative designer focused on crafting intuitive and accessible digital experiences.
+                    Combines research-driven insights with stunning visual design.
+                </p>
+                <div class="skills-container">
+                    <h3 class="skills-title">Design Skills</h3>
+                    <div class="skills-list">
+                        <span class="skill-tag">Figma</span>
+                        <span class="skill-tag">Adobe XD</span>
+                        <span class="skill-tag">Prototyping</span>
+                        <span class="skill-tag">User Research</span>
+                        <span class="skill-tag">Motion Design</span>
+                        <span class="skill-tag">Design Systems</span>
+                    </div>
+                </div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-dribbble"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <div class="team-member">
+                <div class="member-image">
+                    <img src="WhatsApp Image 2024-10-22 at 12.43.39_5ddff75b.jpg" alt="Vansh Tyagi">
+                </div>
+                <h2 class="member-name">Vansh Tyagi</h2>
+                <p class="member-role">Project Manager</p>
+                <p class="member-bio">
+                    Strategic project manager with expertise in agile methodologies and 
+                    a track record of successful digital transformation initiatives.
+                </p>
+                <div class="skills-container">
+                    <h3 class="skills-title">Management Skills</h3>
+                    <div class="skills-list">
+                        <span class="skill-tag">Agile</span>
+                        <span class="skill-tag">Scrum</span>
+                        <span class="skill-tag">Risk Management</span>
+                        <span class="skill-tag">JIRA</span>
+                        <span class="skill-tag">Team Leadership</span>
+                        <span class="skill-tag">Stakeholder Management</span>
+                    </div>
+                </div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
         </div>
-        </div>
-      </div>
+    </div>
 </body>
 </html>
